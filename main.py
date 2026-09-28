@@ -84,15 +84,17 @@ log_reg.fit(X_train_scaled, y_train)
 
 # testing of the model
 y_pred = log_reg.predict(X_test_scaled)
-print(X_test.shape)
-print(type(X_test))
 # accuracy of the model
 score = accuracy_score(y_test, y_pred)
 
-# new production
-new_predict =inputData()
-print(new_predict.shape)
-print(type(new_predict))
-new_pred = log_reg.predict(new_predict.values())
-isDiabtic(new_pred, score)
+new_predict = inputData()
+# Scale the new input using the same scaler
+new_predict_scaled = scaler.transform(new_predict)
+
+# Make prediction
+new_pred = log_reg.predict(new_predict_scaled)
+
+# Get the prediction value
+isDiabtic(new_pred[0], score)
+
 
