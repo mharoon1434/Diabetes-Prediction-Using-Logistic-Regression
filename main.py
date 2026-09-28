@@ -33,21 +33,25 @@ def remove_outliers(data , columns):
 data = remove_outliers(data, data.columns)
 
 # take the input parameter and make the datafrom for predict 
-def inputData():    
-    print ("For correct prediction please give the following health parameter\n\n")
-    num = {
-    "Pregnancies" : [input ("Pregnancies value  ")],
-    "Glucose" : [input ("Glucose level  ")],
-    "BloodPressure" : [input ("BloodPressure value  ")],
-    "SkinThickness" : [input("SkinThickness   ")],
-    "Insulin" :[ input("Insulin value  ")],
-    "BMI": [input("BMI value  ")],
-   "DiabetesPedigreeFunction" : [input("DiabetesPedigreeFunction value  ")],
-    "Patient" : [input("Patient age  ")]
-    };
+def inputData():
+    print("For correct prediction, please give the following health parameters:\n")
 
-    ind =pd.DataFrame(num.items())
+    num = {
+        "Pregnancies": [float(input("Pregnancies value: "))],
+        "Glucose": [float(input("Glucose level: "))],
+        "BloodPressure": [float(input("BloodPressure value: "))],
+        "SkinThickness": [float(input("SkinThickness: "))],
+        "Insulin": [float(input("Insulin value: "))],
+        "BMI": [float(input("BMI value: "))],
+        "DiabetesPedigreeFunction": [float(input("DiabetesPedigreeFunction value: "))],
+        "Age": [float(input("Patient age: "))]
+    }
+
+    ind = pd.DataFrame(num)
+
+    print("\nInput data:")
     print(ind)
+
     return ind
 #check is diabetic or not 
 def isDiabtic(x, Score):
