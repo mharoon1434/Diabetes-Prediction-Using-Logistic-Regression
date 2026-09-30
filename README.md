@@ -1,21 +1,81 @@
-### Diabetes Prediction Using Logistic Regression
+<div align="center">
 
-A machine learning project that predicts whether a person is likely to have diabetes based on health-related input data using Logistic Regression.
-## Project Overview
+# 🩺 Diabetes Prediction
 
-This project implements a binary classification model using Logistic Regression. The system takes health information as input and predicts one of two outcomes:
+### Logistic Regression Machine Learning Project
 
-Output	Meaning <br/>
-0	No Diabetes <br>
-1	Diabetes<br>
-## Machine Learning Model
+Predict diabetes from patient health parameters using **Python + Scikit-learn**.
 
-Algorithm: Logistic Regression
+<img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/Model-Logistic%20Regression-green?style=for-the-badge">
+<img src="https://img.shields.io/badge/ML-Scikit--learn-orange?style=for-the-badge">
 
-Logistic Regression is used because the target variable contains two possible outcomes: diabetes or no diabetes.
+</div>
 
+---
 
+## About
 
-⚠️ Disclaimer
+This project uses **Logistic Regression** to predict whether a patient is diabetic or non-diabetic.
 
-This project is developed for educational and machine learning purposes only. The prediction should not be considered a medical diagnosis or a replacement for professional medical advice.
+- `0` → Not Diabetic
+- `1` → Diabetic
+
+### Features
+
+- Data preprocessing
+- Outlier removal
+- Train/test split
+- Feature scaling
+- Logistic Regression
+- Accuracy evaluation
+- Interactive prediction
+
+---
+
+<details>
+<summary> Technologies</summary>
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+
+</details>
+
+<details>
+<summary> Dataset</summary>
+
+Dataset: `diabetes.csv`
+
+| Feature | Description |
+|---|---|
+| Pregnancies | Number of pregnancies |
+| Glucose | Glucose level |
+| BloodPressure | Blood pressure |
+| SkinThickness | Skin thickness |
+| Insulin | Insulin level |
+| BMI | Body Mass Index |
+| DiabetesPedigreeFunction | Diabetes pedigree value |
+| Age | Patient age |
+| Outcome | Diabetes result |
+
+</details>
+
+<details>
+<summary>🤖 Machine Learning Model</summary>
+
+scaler = StandardScaler()
+
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+log_reg = LogisticRegression()
+log_reg.fit(X_train_scaled, y_train)
+
+y_pred = log_reg.predict(X_test_scaled)
+
+score = accuracy_score(y_test, y_pred)
+print("Accuracy:", score)
